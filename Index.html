@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TrishanthX-Digits</title>
+  <style>
+    body {
+      background-color: #f2f6ff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      color: #2e3b55;
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 12px;
+      font-size: 18px;
+      width: 260px;
+      margin: 10px;
+      border: 2px solid #2e3b55;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 24px;
+      font-size: 18px;
+      background-color: #2e3b55;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #1b2438;
+    }
+    .result {
+      margin-top: 25px;
+      font-size: 22px;
+      color: #1b2438;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>TrishanthX-Digits</h1>
+  <input type="text" id="numberInput" maxlength="15" placeholder="Enter up to 15 digits">
+  <button onclick="calculateSum()">Get Sum</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculateSum() {
+      const input = document.getElementById('numberInput').value;
+      if (!/^\d{1,15}$/.test(input)) {
+        document.getElementById('result').innerText = 'Please enter only digits (up to 15).';
+        return;
+      }
+      let sum = 0;
+      for (let digit of input) {
+        sum += parseInt(digit);
+      }
+      document.getElementById('result').innerText = `Sum of digits: ${sum}`;
+    }
+  </script>
+
+</body>
+</html>
